@@ -1,12 +1,17 @@
 public class AppConfig {
     private String theme;
     private String language;
-
-    public AppConfig() {
-        // Load default settings
+    
+    private static final AppConfig instance = new AppConfig();
+    
+    private AppConfig() {
         this.theme = "Light";
         this.language = "EN";
         System.out.println("New AppConfig instance created!");
+    }
+    
+    public static AppConfig getInstance() {
+        return instance;
     }
 
     public String getTheme() { return theme; }
